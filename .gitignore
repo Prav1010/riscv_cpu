@@ -1,0 +1,16 @@
+sim/results/*
+!sim/results/waveforms.vcd
+!sim/results/*_sim_log.txt
+!sim/results/*_elab_log.txt
+tb/test_programs/*.hex
+tb/test_programs/*_expected_regs.txt
+tb/cpu_test_select.svh
+synth/reports/*.log
+synth/reports/*.jou
+synth/gates/*
+*.pb
+*.wdb
+xsim.dir/
+.Xil/
+__pycache__/
+*.pyc
