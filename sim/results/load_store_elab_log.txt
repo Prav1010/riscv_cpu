@@ -1,0 +1,22 @@
+Vivado Simulator 2018.1
+Copyright 1986-1999, 2001-2017 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.1/bin/unwrapped/win64.o/xelab.exe cpu_tb -s cpu_tb_sim 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.instr_memory(INIT_FILE="../../tb...
+Compiling module work.instr_decode
+Compiling module work.control_unit
+Compiling module work.regfile
+Compiling module work.instr_fetch
+Compiling module work.alu_adder
+Compiling module work.alu_logic
+Compiling module work.alu_shift
+Compiling module work.alu
+Compiling module work.data_memory
+Compiling module work.cpu_top(INIT_FILE="../../tb/test...
+Compiling module work.cpu_tb
+Built simulation snapshot cpu_tb_sim

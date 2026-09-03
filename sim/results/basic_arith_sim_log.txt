@@ -1,0 +1,50 @@
+
+****** xsim v2018.1 (64-bit)
+  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/cpu_tb_sim/xsim_script.tcl
+# xsim {cpu_tb_sim} -autoloadwcfg -runall
+Vivado Simulator 2018.1
+Time resolution is 1 ps
+run -all
+=== Program: ../../tb/test_programs/basic_arith.hex ===
+Final PC: 200
+PASS: x1 = 10
+PASS: x2 = 3
+PASS: x3 = 13
+PASS: x4 = 7
+PASS: x5 = 2
+PASS: x6 = 11
+PASS: x7 = 9
+PASS: x8 = 40
+PASS: x9 = 5
+PASS: x10 = 1
+PASS: x11 = 0
+PASS: x12 = -5
+PASS: x13 = 65536
+PASS: x14 = 4148
+PASS: x15 = 0
+PASS: x16 = 0
+PASS: x17 = 0
+PASS: x18 = 0
+PASS: x19 = 0
+PASS: x20 = 0
+PASS: x21 = 0
+PASS: x22 = 0
+PASS: x23 = 0
+PASS: x24 = 0
+PASS: x25 = 0
+PASS: x26 = 0
+PASS: x27 = 0
+PASS: x28 = 0
+PASS: x29 = 0
+PASS: x30 = 0
+PASS: x31 = 0
+----------------------------------------
+RESULT: ALL REGISTERS MATCH GOLDEN MODEL
+----------------------------------------
+$finish called at time : 1031 ns : File "C:/Users/prave/riscv_cpu/tb/cpu_tb.sv" Line 90
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Sep  3 17:34:02 2026...

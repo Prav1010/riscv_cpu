@@ -25,5 +25,7 @@ addi x3, x3, 300           # skipped
 skip_ahead:
 addi x3, x3, 100           # x3 = 111
 
-addi x7, x0, 8             # target for jalr test
-jalr x8, x7, 0              # x8 = return addr, jump to address in x7 (address 8 = second instruction)
+jal  x0, halt                # unconditional jump to a dedicated halt label (discard return addr via x0)
+
+halt:
+addi x7, x0, 0                # placeholder halt instruction (program ends here)

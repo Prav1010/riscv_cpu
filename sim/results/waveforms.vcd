@@ -1,0 +1,405 @@
+$date
+   Thu Sep  3 17:34:49 2026
+$end
+$version
+  2018.1
+$end
+$timescale
+  1ps
+$end
+$scope module cpu_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " rst_n $end
+$var integer 32 # expected_file $end
+$var integer 32 $ scan_count $end
+$var integer 32 % reg_idx $end
+$var integer 32 & expected_val $end
+$var integer 32 ' errors $end
+$var parameter 296 ( PROGRAM_HEX [295:0] $end
+$var parameter 32 ) NUM_CYCLES [31:0] $end
+$var parameter 408 * EXPECTED_REGS_FILE [407:0] $end
+$scope module dut $end
+$var wire 1 + clk $end
+$var wire 1 , rst_n $end
+$var wire 32 - pc [31:0] $end
+$var wire 32 . pc_plus4 [31:0] $end
+$var wire 32 / instr [31:0] $end
+$var wire 7 0 opcode [6:0] $end
+$var wire 5 1 rd [4:0] $end
+$var wire 5 2 rs1 [4:0] $end
+$var wire 5 3 rs2 [4:0] $end
+$var wire 3 4 funct3 [2:0] $end
+$var wire 7 5 funct7 [6:0] $end
+$var wire 32 6 imm [31:0] $end
+$var wire 4 7 alu_op [3:0] $end
+$var wire 3 8 imm_sel [2:0] $end
+$var wire 1 9 alu_src_b $end
+$var wire 1 : reg_write $end
+$var wire 2 ; wb_sel [1:0] $end
+$var wire 1 < mem_write $end
+$var wire 1 = mem_read $end
+$var wire 1 > branch $end
+$var wire 1 ? jump $end
+$var wire 1 @ jump_reg $end
+$var wire 3 A branch_type [2:0] $end
+$var wire 1 B is_lui $end
+$var wire 1 C is_auipc $end
+$var wire 32 D rs1_data [31:0] $end
+$var wire 32 E rs2_data [31:0] $end
+$var wire 32 F rd_wdata [31:0] $end
+$var wire 32 G alu_b [31:0] $end
+$var wire 32 H alu_result [31:0] $end
+$var wire 1 I alu_zero $end
+$var wire 32 J mem_rdata [31:0] $end
+$var wire 32 K auipc_result [31:0] $end
+$var parameter 32 L IMEM_WORDS [31:0] $end
+$var parameter 32 M DMEM_WORDS [31:0] $end
+$var parameter 296 N INIT_FILE [295:0] $end
+$scope module u_imem $end
+$var wire 32 - addr [31:0] $end
+$var wire 32 / instr [31:0] $end
+$var parameter 32 O MEM_WORDS [31:0] $end
+$var parameter 296 P INIT_FILE [295:0] $end
+$upscope $end
+$scope module u_decode $end
+$var wire 32 / instr [31:0] $end
+$var wire 3 8 imm_sel [2:0] $end
+$var wire 7 0 opcode [6:0] $end
+$var wire 5 1 rd [4:0] $end
+$var wire 3 4 funct3 [2:0] $end
+$var wire 5 2 rs1 [4:0] $end
+$var wire 5 3 rs2 [4:0] $end
+$var wire 7 5 funct7 [6:0] $end
+$var reg 32 Q imm [31:0] $end
+$var parameter 3 R IMM_I [2:0] $end
+$var parameter 3 S IMM_S [2:0] $end
+$var parameter 3 T IMM_B [2:0] $end
+$var parameter 3 U IMM_U [2:0] $end
+$var parameter 3 V IMM_J [2:0] $end
+$upscope $end
+$scope module u_control $end
+$var wire 7 0 opcode [6:0] $end
+$var wire 3 4 funct3 [2:0] $end
+$var wire 7 5 funct7 [6:0] $end
+$var reg 4 W alu_op [3:0] $end
+$var reg 3 X imm_sel [2:0] $end
+$var reg 1 Y alu_src_b $end
+$var reg 1 Z reg_write $end
+$var reg 2 [ wb_sel [1:0] $end
+$var reg 1 \ mem_write $end
+$var reg 1 ] mem_read $end
+$var reg 1 ^ branch $end
+$var reg 1 _ jump $end
+$var reg 1 ` jump_reg $end
+$var reg 3 a branch_type [2:0] $end
+$var reg 1 b is_lui $end
+$var reg 1 c is_auipc $end
+$var parameter 7 d OPCODE_RTYPE [6:0] $end
+$var parameter 7 e OPCODE_ITYPE [6:0] $end
+$var parameter 7 f OPCODE_LOAD [6:0] $end
+$var parameter 7 g OPCODE_JALR [6:0] $end
+$var parameter 7 h OPCODE_STORE [6:0] $end
+$var parameter 7 i OPCODE_BRANCH [6:0] $end
+$var parameter 7 j OPCODE_LUI [6:0] $end
+$var parameter 7 k OPCODE_AUIPC [6:0] $end
+$var parameter 7 l OPCODE_JAL [6:0] $end
+$var parameter 4 m ALU_ADD [3:0] $end
+$var parameter 4 n ALU_SUB [3:0] $end
+$var parameter 4 o ALU_AND [3:0] $end
+$var parameter 4 p ALU_OR [3:0] $end
+$var parameter 4 q ALU_XOR [3:0] $end
+$var parameter 4 r ALU_SLL [3:0] $end
+$var parameter 4 s ALU_SRL [3:0] $end
+$var parameter 4 t ALU_SRA [3:0] $end
+$var parameter 4 u ALU_SLT [3:0] $end
+$var parameter 4 v ALU_SLTU [3:0] $end
+$var parameter 3 w IMM_I [2:0] $end
+$var parameter 3 x IMM_S [2:0] $end
+$var parameter 3 y IMM_B [2:0] $end
+$var parameter 3 z IMM_U [2:0] $end
+$var parameter 3 { IMM_J [2:0] $end
+$var parameter 3 | BR_NONE [2:0] $end
+$var parameter 3 } BR_EQ [2:0] $end
+$var parameter 3 ~ BR_NE [2:0] $end
+$var parameter 3 !! BR_LT [2:0] $end
+$var parameter 3 "! BR_GE [2:0] $end
+$var parameter 3 #! BR_LTU [2:0] $end
+$var parameter 3 $! BR_GEU [2:0] $end
+$upscope $end
+$scope module u_regfile $end
+$var wire 1 + clk $end
+$var wire 1 , rst_n $end
+$var wire 5 2 rs1_addr [4:0] $end
+$var wire 5 3 rs2_addr [4:0] $end
+$var wire 32 D rs1_data [31:0] $end
+$var wire 32 E rs2_data [31:0] $end
+$var wire 1 : rd_we $end
+$var wire 5 1 rd_addr [4:0] $end
+$var wire 32 F rd_data [31:0] $end
+$var integer 32 %! i $end
+$upscope $end
+$scope module u_fetch $end
+$var wire 1 + clk $end
+$var wire 1 , rst_n $end
+$var wire 1 > branch $end
+$var wire 3 A branch_type [2:0] $end
+$var wire 1 ? jump $end
+$var wire 1 @ jump_reg $end
+$var wire 32 6 imm [31:0] $end
+$var wire 32 D rs1_data [31:0] $end
+$var wire 32 E rs2_data [31:0] $end
+$var reg 32 &! pc [31:0] $end
+$var wire 32 . pc_plus4 [31:0] $end
+$var reg 1 '! branch_taken $end
+$var wire 32 (! branch_target [31:0] $end
+$var wire 32 )! jal_target [31:0] $end
+$var wire 32 *! jalr_target [31:0] $end
+$var wire 32 +! next_pc [31:0] $end
+$var parameter 3 ,! BR_NONE [2:0] $end
+$var parameter 3 -! BR_EQ [2:0] $end
+$var parameter 3 .! BR_NE [2:0] $end
+$var parameter 3 /! BR_LT [2:0] $end
+$var parameter 3 0! BR_GE [2:0] $end
+$var parameter 3 1! BR_LTU [2:0] $end
+$var parameter 3 2! BR_GEU [2:0] $end
+$upscope $end
+$scope module u_alu $end
+$var wire 4 7 alu_op [3:0] $end
+$var wire 32 D a [31:0] $end
+$var wire 32 G b [31:0] $end
+$var reg 32 3! result [31:0] $end
+$var wire 1 I zero $end
+$var wire 32 4! add_result [31:0] $end
+$var wire 32 5! sub_result [31:0] $end
+$var wire 1 6! add_cout $end
+$var wire 1 7! sub_cout $end
+$var wire 1 8! add_ovf $end
+$var wire 1 9! sub_ovf $end
+$var wire 32 :! and_result [31:0] $end
+$var wire 32 ;! or_result [31:0] $end
+$var wire 32 <! xor_result [31:0] $end
+$var wire 32 =! sll_result [31:0] $end
+$var wire 32 >! srl_result [31:0] $end
+$var wire 32 ?! sra_result [31:0] $end
+$var wire 1 @! slt_result $end
+$var wire 1 A! sltu_result $end
+$var parameter 4 B! ALU_ADD [3:0] $end
+$var parameter 4 C! ALU_SUB [3:0] $end
+$var parameter 4 D! ALU_AND [3:0] $end
+$var parameter 4 E! ALU_OR [3:0] $end
+$var parameter 4 F! ALU_XOR [3:0] $end
+$var parameter 4 G! ALU_SLL [3:0] $end
+$var parameter 4 H! ALU_SRL [3:0] $end
+$var parameter 4 I! ALU_SRA [3:0] $end
+$var parameter 4 J! ALU_SLT [3:0] $end
+$var parameter 4 K! ALU_SLTU [3:0] $end
+$scope module u_adder $end
+$var wire 32 D a [31:0] $end
+$var wire 32 G b [31:0] $end
+$var wire 1 L! sub $end
+$var wire 32 4! result [31:0] $end
+$var wire 1 6! carry_out $end
+$var wire 1 8! overflow $end
+$var wire 32 M! b_operand [31:0] $end
+$var wire 1 N! carry_in $end
+$var wire 1 O! a_sign $end
+$var wire 1 P! b_sign $end
+$var wire 1 Q! r_sign $end
+$upscope $end
+$scope module u_subtractor $end
+$var wire 32 D a [31:0] $end
+$var wire 32 G b [31:0] $end
+$var wire 1 R! sub $end
+$var wire 32 5! result [31:0] $end
+$var wire 1 7! carry_out $end
+$var wire 1 9! overflow $end
+$var wire 32 S! b_operand [31:0] $end
+$var wire 1 T! carry_in $end
+$var wire 1 U! a_sign $end
+$var wire 1 V! b_sign $end
+$var wire 1 W! r_sign $end
+$upscope $end
+$scope module u_logic $end
+$var wire 32 D a [31:0] $end
+$var wire 32 G b [31:0] $end
+$var wire 32 :! result_and [31:0] $end
+$var wire 32 ;! result_or [31:0] $end
+$var wire 32 <! result_xor [31:0] $end
+$upscope $end
+$scope module u_shift $end
+$var wire 32 D a [31:0] $end
+$var wire 32 G b [31:0] $end
+$var wire 32 =! result_sll [31:0] $end
+$var wire 32 >! result_srl [31:0] $end
+$var wire 32 ?! result_sra [31:0] $end
+$var wire 5 X! shamt [4:0] $end
+$upscope $end
+$upscope $end
+$scope module u_dmem $end
+$var wire 1 + clk $end
+$var wire 32 H addr [31:0] $end
+$var wire 32 E wdata [31:0] $end
+$var wire 1 < mem_write $end
+$var wire 1 = mem_read $end
+$var wire 32 J rdata [31:0] $end
+$var integer 32 Y! i $end
+$var parameter 32 Z! MEM_WORDS [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1!
+b11 !!
+1"
+b100 "!
+b11111111111111111011000111100000 #
+b101 #!
+b11111111111111111111111111111111 $
+b110 $!
+b11111 %
+bx %!
+b0 &
+b11001100 &!
+b0 '
+0'!
+b101110001011100010111100101110001011100010111101110100011000100010111101110100011001010111001101110100010111110111000001110010011011110110011101110010011000010110110101110011001011110110110001101111011000010110010001011111011100110111010001101111011100100110010100101110011010000110010101111000 (
+bx (!
+b110010 )
+bx )!
+b1011100010111000101111001011100010111000101111011101000110001000101111011101000110010101110011011101000101111101110000011100100110111101100111011100100110000101101101011100110010111101101100011011110110000101100100010111110111001101110100011011110111001001100101010111110110010101111000011100000110010101100011011101000110010101100100010111110111001001100101011001110111001100101110011101000111100001110100 *
+bx0 *!
+1+
+b11010000 +!
+1,
+b0 ,!
+b11001100 -
+b1 -!
+b11010000 .
+b10 .!
+bx /
+b11 /!
+bx 0
+b100 0!
+bx 1
+b101 1!
+bx 2
+b110 2!
+bx 3
+bx 3!
+bx 4
+bx 4!
+bx 5
+bx 5!
+bx 6
+x6!
+b0 7
+x7!
+b0 8
+x8!
+09
+x9!
+0:
+bx :!
+b0 ;
+bx ;!
+0<
+bx <!
+0=
+bx =!
+0>
+bx >!
+0?
+bx ?!
+0@
+x@!
+b0 A
+xA!
+0B
+b0 B!
+0C
+b1 C!
+bx D
+b10 D!
+bx E
+b11 E!
+bx F
+b100 F!
+bx G
+b101 G!
+bx H
+b110 H!
+xI
+b111 I!
+b0 J
+b1000 J!
+bx K
+b1001 K!
+b100000000 L
+0L!
+b100000000 M
+bx M!
+b101110001011100010111100101110001011100010111101110100011000100010111101110100011001010111001101110100010111110111000001110010011011110110011101110010011000010110110101110011001011110110110001101111011000010110010001011111011100110111010001101111011100100110010100101110011010000110010101111000 N
+0N!
+b100000000 O
+xO!
+b101110001011100010111100101110001011100010111101110100011000100010111101110100011001010111001101110100010111110111000001110010011011110110011101110010011000010110110101110011001011110110110001101111011000010110010001011111011100110111010001101111011100100110010100101110011010000110010101111000 P
+xP!
+bx Q
+xQ!
+b0 R
+1R!
+b1 S
+bx S!
+b10 T
+1T!
+b11 U
+xU!
+b100 V
+xV!
+b0 W
+xW!
+b0 X
+bx X!
+0Y
+b100000000 Y!
+0Z
+b100000000 Z!
+b0 [
+0\
+0]
+0^
+0_
+0`
+b0 a
+0b
+0c
+b110011 d
+b10011 e
+b11 f
+b1100111 g
+b100011 h
+b1100011 i
+b110111 j
+b10111 k
+b1101111 l
+b0 m
+b1 n
+b10 o
+b11 p
+b100 q
+b101 r
+b110 s
+b111 t
+b1000 u
+b1001 v
+b0 w
+b1 x
+b10 y
+b11 z
+b100 {
+b0 |
+b1 }
+b10 ~
+$end
