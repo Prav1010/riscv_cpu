@@ -60,7 +60,7 @@ cd synth
 vivado -mode batch -source cpu_synth.tcl
 ```
 
-Produces timing, area, and power reports in `synth/reports/`.
+Produces timing, area, and power reports in `synth/reports/`. Real synthesis (Artix-7 xc7a35tcpg236-1, instruction memory pre-loaded with a test program) shows **0 errors, 0 critical warnings**, 4.67% LUT utilization, 2.47% register utilization, and an 8.147ns critical path (~123 MHz) running the full fetch-through-writeback chain, as expected for a single-cycle design. See `docs/design_decisions.md` Section 8 for the full discussion, including a real lesson learned about synthesis needing observable outputs (the first synthesis attempt produced zero cells until debug output ports were added).
 
 ## Repository Structure
 

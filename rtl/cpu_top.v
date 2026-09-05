@@ -12,7 +12,14 @@ module cpu_top #(
     parameter INIT_FILE  = ""
 )(
     input  wire clk,
-    input  wire rst_n
+    input  wire rst_n,
+
+    // Debug/observability outputs - expose internal architectural state
+    // so synthesis has observable outputs to preserve (without these,
+    // the entire design has no effect on any output and gets optimized
+    // away to nothing, regardless of internal correctness)
+    output wire [31:0] debug_pc,
+    output wire [31:0] debug_reg_x1
 );
 
     // ------------------------------------------------------------
@@ -125,5 +132,7 @@ module cpu_top #(
                        (wb_sel == 2'd1) ? mem_rdata :
                        (wb_sel == 2'd2) ? pc_plus4 :
                        alu_result;
+    assign debug_pc = pc;
+    assign debug_reg_x1 = u_regfile.regs[1];
 
 endmodule

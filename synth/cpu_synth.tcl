@@ -26,7 +26,14 @@ read_verilog -sv $rtl_dir/cpu_top.v
 
 # Set the top module
 set_property top cpu_top [current_fileset]
+# Set the top module
+set_property top cpu_top [current_fileset]
 
+# Point instruction memory at a real assembled program so synthesis
+# sees genuine memory content, rather than leaving INIT_FILE empty
+# (which caused Vivado to optimize the entire design away as
+# undriven/dead logic on the first synthesis attempt)
+set_property generic {INIT_FILE=../tb/test_programs/basic_arith.hex} [current_fileset]
 # Synthesize out-of-context (standalone block synthesis, no I/O buffers)
 synth_design -top cpu_top -part $part_name -mode out_of_context
 

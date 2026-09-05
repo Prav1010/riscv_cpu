@@ -1,0 +1,665 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Sat Sep  5 15:29:23 2026
+# Process ID: 27344
+# Current directory: C:/Users/prave/riscv_cpu/synth
+# Command line: vivado.exe -mode batch -source cpu_synth.tcl
+# Log file: C:/Users/prave/riscv_cpu/synth/vivado.log
+# Journal file: C:/Users/prave/riscv_cpu/synth\vivado.jou
+#-----------------------------------------------------------
+source cpu_synth.tcl
+# set part_name  "xc7a35tcpg236-1"   ;
+# set rtl_dir    "../rtl"
+# set report_dir "./reports"
+# set gates_dir  "./gates"
+# file mkdir $report_dir
+# file mkdir $gates_dir
+# read_verilog -sv $rtl_dir/cpu_pkg.sv
+# read_verilog -sv $rtl_dir/alu_adder.v
+# read_verilog -sv $rtl_dir/alu_logic.v
+# read_verilog -sv $rtl_dir/alu_shift.v
+# read_verilog -sv $rtl_dir/alu.v
+# read_verilog -sv $rtl_dir/regfile.v
+# read_verilog -sv $rtl_dir/instr_decode.v
+# read_verilog -sv $rtl_dir/control_unit.v
+# read_verilog -sv $rtl_dir/instr_fetch.v
+# read_verilog -sv $rtl_dir/instr_memory.v
+# read_verilog -sv $rtl_dir/data_memory.v
+# read_verilog -sv $rtl_dir/cpu_top.v
+# set_property top cpu_top [current_fileset]
+# set_property top cpu_top [current_fileset]
+# set_property generic {INIT_FILE=../tb/test_programs/basic_arith.hex} [current_fileset]
+# synth_design -top cpu_top -part $part_name -mode out_of_context
+Command: synth_design -top cpu_top -part xc7a35tcpg236-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 39736 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 411.125 ; gain = 97.109
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'cpu_top' [C:/Users/prave/riscv_cpu/rtl/cpu_top.v:9]
+	Parameter IMEM_WORDS bound to: 256 - type: integer 
+	Parameter DMEM_WORDS bound to: 256 - type: integer 
+	Parameter INIT_FILE bound to: ../tb/test_programs/basic_arith.hex - type: string 
+INFO: [Synth 8-6157] synthesizing module 'instr_memory' [C:/Users/prave/riscv_cpu/rtl/instr_memory.v:8]
+	Parameter MEM_WORDS bound to: 256 - type: integer 
+	Parameter INIT_FILE bound to: ../tb/test_programs/basic_arith.hex - type: string 
+INFO: [Synth 8-3876] $readmem data file '../tb/test_programs/basic_arith.hex' is read successfully [C:/Users/prave/riscv_cpu/rtl/instr_memory.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'instr_memory' (1#1) [C:/Users/prave/riscv_cpu/rtl/instr_memory.v:8]
+INFO: [Synth 8-6157] synthesizing module 'instr_decode' [C:/Users/prave/riscv_cpu/rtl/instr_decode.v:9]
+	Parameter IMM_I bound to: 3'b000 
+	Parameter IMM_S bound to: 3'b001 
+	Parameter IMM_B bound to: 3'b010 
+	Parameter IMM_U bound to: 3'b011 
+	Parameter IMM_J bound to: 3'b100 
+INFO: [Synth 8-6155] done synthesizing module 'instr_decode' (2#1) [C:/Users/prave/riscv_cpu/rtl/instr_decode.v:9]
+INFO: [Synth 8-6157] synthesizing module 'control_unit' [C:/Users/prave/riscv_cpu/rtl/control_unit.v:5]
+	Parameter OPCODE_RTYPE bound to: 7'b0110011 
+	Parameter OPCODE_ITYPE bound to: 7'b0010011 
+	Parameter OPCODE_LOAD bound to: 7'b0000011 
+	Parameter OPCODE_JALR bound to: 7'b1100111 
+	Parameter OPCODE_STORE bound to: 7'b0100011 
+	Parameter OPCODE_BRANCH bound to: 7'b1100011 
+	Parameter OPCODE_LUI bound to: 7'b0110111 
+	Parameter OPCODE_AUIPC bound to: 7'b0010111 
+	Parameter OPCODE_JAL bound to: 7'b1101111 
+	Parameter ALU_ADD bound to: 4'b0000 
+	Parameter ALU_SUB bound to: 4'b0001 
+	Parameter ALU_AND bound to: 4'b0010 
+	Parameter ALU_OR bound to: 4'b0011 
+	Parameter ALU_XOR bound to: 4'b0100 
+	Parameter ALU_SLL bound to: 4'b0101 
+	Parameter ALU_SRL bound to: 4'b0110 
+	Parameter ALU_SRA bound to: 4'b0111 
+	Parameter ALU_SLT bound to: 4'b1000 
+	Parameter ALU_SLTU bound to: 4'b1001 
+	Parameter IMM_I bound to: 3'b000 
+	Parameter IMM_S bound to: 3'b001 
+	Parameter IMM_B bound to: 3'b010 
+	Parameter IMM_U bound to: 3'b011 
+	Parameter IMM_J bound to: 3'b100 
+	Parameter BR_NONE bound to: 3'b000 
+	Parameter BR_EQ bound to: 3'b001 
+	Parameter BR_NE bound to: 3'b010 
+	Parameter BR_LT bound to: 3'b011 
+	Parameter BR_GE bound to: 3'b100 
+	Parameter BR_LTU bound to: 3'b101 
+	Parameter BR_GEU bound to: 3'b110 
+INFO: [Synth 8-226] default block is never used [C:/Users/prave/riscv_cpu/rtl/control_unit.v:82]
+INFO: [Synth 8-226] default block is never used [C:/Users/prave/riscv_cpu/rtl/control_unit.v:100]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit' (3#1) [C:/Users/prave/riscv_cpu/rtl/control_unit.v:5]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [C:/Users/prave/riscv_cpu/rtl/regfile.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (4#1) [C:/Users/prave/riscv_cpu/rtl/regfile.v:8]
+INFO: [Synth 8-6157] synthesizing module 'instr_fetch' [C:/Users/prave/riscv_cpu/rtl/instr_fetch.v:8]
+	Parameter BR_NONE bound to: 3'b000 
+	Parameter BR_EQ bound to: 3'b001 
+	Parameter BR_NE bound to: 3'b010 
+	Parameter BR_LT bound to: 3'b011 
+	Parameter BR_GE bound to: 3'b100 
+	Parameter BR_LTU bound to: 3'b101 
+	Parameter BR_GEU bound to: 3'b110 
+INFO: [Synth 8-6155] done synthesizing module 'instr_fetch' (5#1) [C:/Users/prave/riscv_cpu/rtl/instr_fetch.v:8]
+INFO: [Synth 8-6157] synthesizing module 'alu' [C:/Users/prave/riscv_cpu/rtl/alu.v:6]
+	Parameter ALU_ADD bound to: 4'b0000 
+	Parameter ALU_SUB bound to: 4'b0001 
+	Parameter ALU_AND bound to: 4'b0010 
+	Parameter ALU_OR bound to: 4'b0011 
+	Parameter ALU_XOR bound to: 4'b0100 
+	Parameter ALU_SLL bound to: 4'b0101 
+	Parameter ALU_SRL bound to: 4'b0110 
+	Parameter ALU_SRA bound to: 4'b0111 
+	Parameter ALU_SLT bound to: 4'b1000 
+	Parameter ALU_SLTU bound to: 4'b1001 
+INFO: [Synth 8-6157] synthesizing module 'alu_adder' [C:/Users/prave/riscv_cpu/rtl/alu_adder.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_adder' (6#1) [C:/Users/prave/riscv_cpu/rtl/alu_adder.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_logic' [C:/Users/prave/riscv_cpu/rtl/alu_logic.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'alu_logic' (7#1) [C:/Users/prave/riscv_cpu/rtl/alu_logic.v:5]
+INFO: [Synth 8-6157] synthesizing module 'alu_shift' [C:/Users/prave/riscv_cpu/rtl/alu_shift.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shift' (8#1) [C:/Users/prave/riscv_cpu/rtl/alu_shift.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (9#1) [C:/Users/prave/riscv_cpu/rtl/alu.v:6]
+INFO: [Synth 8-6157] synthesizing module 'data_memory' [C:/Users/prave/riscv_cpu/rtl/data_memory.v:7]
+	Parameter MEM_WORDS bound to: 256 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'data_memory' (10#1) [C:/Users/prave/riscv_cpu/rtl/data_memory.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'cpu_top' (11#1) [C:/Users/prave/riscv_cpu/rtl/cpu_top.v:9]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[31]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[30]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[29]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[28]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[27]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[26]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[25]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[24]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[23]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[22]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[21]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[20]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[19]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[18]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[17]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[16]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[15]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[14]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[13]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[12]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[11]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[10]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[1]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[0]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[31]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[30]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[29]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[28]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[27]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[26]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[25]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[24]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[23]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[22]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[21]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[20]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[19]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[18]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[17]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[16]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[15]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[14]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[13]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[12]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[11]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[10]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[9]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[8]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[7]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[6]
+WARNING: [Synth 8-3331] design alu_shift has unconnected port b[5]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[6]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[4]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[3]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[2]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[1]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[0]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[1]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[0]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 466.336 ; gain = 152.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 466.336 ; gain = 152.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 466.336 ; gain = 152.320
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "mem" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "imm_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "alu_src_b" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "reg_write" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "wb_sel" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "mem_write" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_read" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "branch" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "jump" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "jump_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "is_lui" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "is_auipc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[30]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[31]" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 466.336 ; gain = 152.320
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     33 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 4     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 32    
++---Muxes : 
+	  15 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 7     
+	   8 Input      4 Bit        Muxes := 2     
+	  10 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	  10 Input      3 Bit        Muxes := 2     
+	   7 Input      3 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 32    
+	  10 Input      1 Bit        Muxes := 9     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module cpu_top 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module instr_memory 
+Detailed RTL Component Info : 
++---Muxes : 
+	  15 Input     32 Bit        Muxes := 1     
+Module control_unit 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input      4 Bit        Muxes := 2     
+	  10 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	  10 Input      3 Bit        Muxes := 2     
+	   7 Input      3 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 9     
+Module regfile 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 31    
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 31    
+Module instr_fetch 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 3     
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+Module alu_adder 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     33 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module alu_logic 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+Module data_memory 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "imm_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "alu_src_b" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "reg_write" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "wb_sel" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "mem_write" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_read" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "branch" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "jump" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "jump_reg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "is_lui" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "is_auipc" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[31]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[30]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[29]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[28]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[27]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[26]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[25]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[24]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[23]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[22]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[21]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[20]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[19]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[18]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[17]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[16]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[15]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[14]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[13]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[12]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[11]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[10]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[1]
+WARNING: [Synth 8-3331] design data_memory has unconnected port addr[0]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[6]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[4]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[3]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[2]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[1]
+WARNING: [Synth 8-3331] design control_unit has unconnected port funct7[0]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[31]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[30]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[29]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[28]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[27]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[26]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[25]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[24]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[23]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[22]
+WARNING: [Synth 8-3331] design instr_memory has unconnected port addr[21]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][31]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][30]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][29]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][28]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][27]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][26]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][25]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][24]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][23]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][22]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][21]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][20]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][19]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][18]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][17]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][16]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][15]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][14]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][13]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][12]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][11]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][10]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][9]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][8]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][7]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][6]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][5]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][4]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][3]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][2]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][1]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[1][0]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][31]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][30]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][29]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][28]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][27]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][26]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][25]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][24]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][23]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][22]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][21]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][20]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][19]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][18]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][17]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][16]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][15]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][14]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][13]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][12]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][11]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][10]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][9]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][8]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][7]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][6]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][5]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][4]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][3]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][2]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][1]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[2][0]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][31]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][30]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][29]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][28]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][27]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][26]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][25]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][24]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][23]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][22]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][21]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][20]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][19]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][18]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][17]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][16]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][15]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][14]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][13]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][12]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][11]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][10]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][9]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][8]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][7]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][6]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][5]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][4]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][3]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][2]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][1]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[3][0]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[4][31]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[4][30]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[4][29]) is unused and will be removed from module regfile.
+WARNING: [Synth 8-3332] Sequential element (regs_reg[4][28]) is unused and will be removed from module regfile.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++-+-----+------+
+| |Cell |Count |
++-+-----+------+
++-+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     0|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1141 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 589.512 ; gain = 275.496
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+88 Infos, 200 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 693.641 ; gain = 392.449
+# report_utilization             -file $report_dir/area_breakdown.rpt
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 693.641 ; gain = 0.000
+# report_timing_summary          -file $report_dir/timing.rpt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1112.199 ; gain = 418.559
+# report_timing -delay_type max -max_paths 10 -file $report_dir/timing_max_paths.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 10 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-72] No paths found.
+# report_power                   -file $report_dir/power_breakdown.rpt
+Command: report_power -file ./reports/power_breakdown.rpt
+WARNING: [Power 33-232] No user defined clocks were found in the design!
+Resolution: Please specify clocks using create_clock/create_generated_clock for sequential elements. For pure combinatorial circuits, please specify a virtual clock, otherwise the vectorless estimation might be inaccurate
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+0 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+# puts "=== Synthesis complete ==="
+=== Synthesis complete ===
+# puts "Reports written to $report_dir/"
+Reports written to ./reports/
+# write_verilog -force $gates_dir/cpu_top_synth.v
+# write_checkpoint -force $gates_dir/cpu_top_post_synth.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/prave/riscv_cpu/synth/gates/cpu_top_post_synth.dcp' has been generated.
+INFO: [Common 17-206] Exiting Vivado at Sat Sep  5 15:30:02 2026...

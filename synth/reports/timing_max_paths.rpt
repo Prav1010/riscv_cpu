@@ -1,0 +1,366 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
+| Date         : Sat Sep  5 15:34:26 2026
+| Host         : Prav11 running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file ./reports/timing_max_paths.rpt
+| Design       : cpu_top
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.21 2018-02-08
+--------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[10][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[10][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[11][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[11][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[12][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[12][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[13][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[13][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[14][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[14][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[15][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[15][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[1][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[1][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[2][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[2][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[4][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[4][25]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_fetch/pc_reg[3]_rep/C
+                            (rising edge-triggered cell FDCE)
+  Destination:            u_regfile/regs_reg[8][25]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.147ns  (logic 2.116ns (25.973%)  route 6.031ns (74.027%))
+  Logic Levels:           10  (FDCE=1 LUT3=1 LUT4=1 LUT5=3 LUT6=3 MUXF7=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDCE                         0.000     0.000 r  u_fetch/pc_reg[3]_rep/C
+                         FDCE (Prop_fdce_C_Q)         0.456     0.456 f  u_fetch/pc_reg[3]_rep/Q
+                         net (fo=101, unplaced)       0.841     1.297    u_fetch/pc_reg[3]_rep_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.321     1.618 r  u_fetch/regs[1][20]_i_7/O
+                         net (fo=92, unplaced)        0.546     2.164    u_regfile/pc_reg[5]_rep[3]
+                         LUT6 (Prop_lut6_I4_O)        0.124     2.288 r  u_regfile/result_carry_i_22/O
+                         net (fo=1, unplaced)         0.000     2.288    u_regfile/result_carry_i_22_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     2.533 r  u_regfile/result_carry_i_16/O
+                         net (fo=1, unplaced)         0.452     2.985    u_fetch/pc_reg[5]_rep_4
+                         LUT5 (Prop_lut5_I4_O)        0.298     3.283 r  u_fetch/result_carry_i_12/O
+                         net (fo=112, unplaced)       1.004     4.287    u_fetch/regs_reg[1][30][2]
+                         LUT5 (Prop_lut5_I0_O)        0.150     4.437 r  u_fetch/regs[1][27]_i_10/O
+                         net (fo=2, unplaced)         0.913     5.350    u_fetch/regs[1][27]_i_10_n_0
+                         LUT3 (Prop_lut3_I0_O)        0.150     5.500 r  u_fetch/regs[1][25]_i_6/O
+                         net (fo=2, unplaced)         0.913     6.413    u_fetch/regs[1][25]_i_6_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     6.537 r  u_fetch/regs[1][25]_i_3/O
+                         net (fo=2, unplaced)         0.913     7.450    u_fetch/regs[1][25]_i_3_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     7.574 r  u_fetch/regs[1][25]_i_2/O
+                         net (fo=1, unplaced)         0.449     8.023    u_fetch/regs[1][25]_i_2_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124     8.147 r  u_fetch/regs[1][25]_i_1/O
+                         net (fo=11, unplaced)        0.000     8.147    u_regfile/pc_reg[5]_rep_8
+                         FDCE                                         r  u_regfile/regs_reg[8][25]/D
+  -------------------------------------------------------------------    -------------------
+
+
+
+
