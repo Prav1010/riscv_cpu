@@ -14,3 +14,7 @@ xsim.dir/
 .Xil/
 __pycache__/
 *.pyc
+synth/vivado.jou
+synth/vivado.log
+synth/vivado_*.backup.jou
+synth/vivado_*.backup.log
