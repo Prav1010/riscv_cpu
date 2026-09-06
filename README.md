@@ -39,6 +39,11 @@ See `docs/isa_spec.md` for exact instruction coverage, `docs/microarchitecture.m
 All three programs pass with every register matching the golden model exactly.
 
 ## How to Run
+## Example Waveform
+
+![RISC-V CPU waveform](docs/cpu_waveform.png)
+
+*Captured in Vivado's simulator: PC incrementing through fetched instructions, with rs1/rs2 register reads, ALU result, and the writeback value visible as each instruction executes.*
 
 ```bash
 cd sim
