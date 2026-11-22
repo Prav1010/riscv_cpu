@@ -22,34 +22,40 @@ Real RV32I systems typically present a unified (von Neumann) address space where
 
 ## 6. A Real Bug Found During Development: PC Update Indentation
 
-While verifying the `branches.asm` test program, both the RTL simulation and the Python golden model produced incorrect/looping behavior. Tracing it down revealed a genuine bug in the golden model itself: a stray indentation error had placed the `self.pc = next_pc` line inside an unreachable branch of an `if/elif/else` chain, meaning the golden model's PC was never actually advancing for any instruction - it silently stayed at address 0 forever. This is a good example of exactly the kind of bug an independent golden model is meant to catch: the mismatch between RTL and golden-model behavior was the signal that something was wrong, even though (in this specific instance) the bug turned out to be in the reference model rather than the RTL. Separately, this debugging session also surfaced a real logic bug in the original test program itself (`branches.asm`'s JALR test jumped backward into earlier code, creating a genuine infinite loop by design) - both issues were found and fixed as part of getting all three test programs to pass cleanly against the corrected golden model.
+While verifying the `branches.asm` test program, both the RTL simulation and the Python golden model produced incorrect/looping behavior. Tracing it down revealed a genuine bug in the golden model itself: a stray indentation error had placed the `self.pc = next_pc` line inside an unreachable branch of an `if/elif/else` chain, meaning the golden model's PC was never actually advancing for any instruction - it silently stayed at address 0 forever. This is a good example of exactly the kind of bug an independent golden model is meant to catch: the mismatch between RTL and golden-model behavior was the signal that something was wrong, even though (in this specific instance) the bug turned out to be in the reference model rather than the RTL. Separately, this debugging session also surfaced a real logic bug in the original test program itself (`branches.asm`'s JALR test jumped backward into earlier code, creating a genuine infinite loop by design) - both issues were found and fixed as part of getting the test programs to pass cleanly against the corrected golden model. JALR was removed from `branches.asm` at that point and is now tested in `coverage_extra.asm`.
 
 ## 7. Test Program Coverage
 
-Three test programs exercise distinct instruction categories:
+Four test programs exercise distinct instruction categories. The first three cover 17 of the 31 implemented instructions; `coverage_extra.asm` was added to run the other 14:
 
 | Program | Coverage |
 |---------|----------|
 | `basic_arith.asm` | R-type and I-type ALU ops, shifts, comparisons, negative immediates, LUI, AUIPC |
-| `branches.asm` | B-type branches (taken and not-taken paths), JAL (unconditional jump with return-address capture) |
+| `branches.asm` | B-type branches (BEQ and BLT, both taken), JAL (unconditional jump with return-address capture) |
 | `load_store.asm` | SW/LW with multiple offsets, verifying stored values round-trip correctly through memory |
+| `coverage_extra.asm` | ANDI, ORI, XORI, SLTI, SLTIU, SRAI, SLL, SRL, SRA, BNE, BGE, BLTU, BGEU, JALR; every branch taken and not taken; JALR with an odd target to check bit-0 clearing |
 
-All three programs' final register state is checked against the independently-computed golden model state, not just spot-checked for a subset of registers.
+All four programs' final register state (x1-x31) is checked against the independently-computed golden model state, not just spot-checked for a subset of registers.
 
 
-## 8. Synthesis Results
+## 8. Synthesis and Implementation Results
 
-Synthesizing `cpu_top` (with instruction memory pre-loaded with `basic_arith.hex` for a realistic, non-degenerate design) for an Artix-7 (xc7a35tcpg236-1) target produced:
+`cpu_top` was synthesised and then placed and routed for an Artix-7 (xc7a35tcpg236-1) target in out-of-context mode, with instruction memory pre-loaded with `basic_arith.hex`. The first set of numbers is from a synthesis-only run in Vivado 2018.1 (no clock constraint); the second set is from the constrained flow in `synth/cpu_impl.tcl`, run in Vivado 2023.1.
 
-| Metric | Value |
-|--------|-------|
-| Slice LUTs | 972 / 20,800 (4.67%) |
-| Slice Registers | 1,027 / 41,600 (2.47%) |
-| Critical path delay | 8.147 ns (~123 MHz max frequency) |
-| Total on-chip power | 21.235 W (Vivado flags "Junction temp exceeded" under its default vector-less power estimate) |
+| Metric | 2018.1 synthesis (unconstrained) | 2023.1 placed and routed, 10 ns |
+|--------|-------|-------|
+| Slice LUTs | 972 / 20,800 (4.67%) | 906 / 20,800 (4.36%) |
+| Slice registers | 1,027 / 41,600 (2.47%) | 358 / 41,600 (0.86%) |
+| Worst setup slack | not meaningful (no clock constraint) | +0.150 ns (timing met) |
+| Critical path | 8.147 ns, estimated before placement | 9.843 ns (2.054 ns logic, 7.789 ns routing) |
+| Total on-chip power | 21.235 W, low confidence, not meaningful | 0.097 W, vector-less, medium confidence |
 
-**Note on synthesis methodology**: the first synthesis attempt produced **zero cells** - Vivado correctly determined that with no `INIT_FILE` specified and no observable outputs beyond `clk`/`rst_n`, nothing in the design had any effect that could be observed externally, so the entire CPU was optimized away as dead logic. This was fixed by (1) pointing instruction memory at a real assembled test program via the `INIT_FILE` generic, and (2) adding two debug/observability output ports (`debug_pc`, `debug_reg_x1`) so synthesis has something concrete to preserve. This is a useful, real lesson about synthesis semantics: RTL that is perfectly correct in simulation can still synthesize to nothing if the top-level design has no observable outputs - simulation and synthesis reason about a design differently, and a design meant for eventual real deployment needs genuine I/O, not just internal correctness.
+At an 8 ns target the same flow reports a worst setup slack of -0.539 ns (115 of 686 endpoints failing), so the core meets 100 MHz and does not meet 125 MHz. The maximum frequency lies between the two and was not searched further.
 
-**Critical path analysis**: the reported critical path runs from the PC register, through fetch/decode logic, through the ALU's adder, to a register file write - this is expected and correct for a single-cycle design, where the entire fetch-through-writeback chain for one instruction must complete within a single clock period (see `docs/microarchitecture.md` Section 4 for the performance trade-off this implies).
+**Why the register count drops:** the program in instruction memory (`basic_arith`) writes only x1-x14, and many of those bits hold fixed values. Flip-flops that never change from their reset value are constants, and `opt_design` removes them. A processor running arbitrary programs would keep all 31 x 32 register bits.
 
-**Resource usage in context**: at under 5% LUT utilization and under 2.5% register utilization, this single-cycle core leaves substantial headroom on even this small FPGA - a useful point of comparison against this portfolio's `cache_subsystem` project, whose default configuration consumed over 80% of the same device's LUTs, illustrating how dramatically resource cost varies by design type even on identical target hardware.
+**What these figures do not cover:** a fixed program in memory; out-of-context mode (no I/O, clock tree only estimated); a vector-less power estimate; no board test.
+
+**Note on synthesis methodology**: the first synthesis attempt produced **zero cells** - Vivado correctly determined that with no `INIT_FILE` specified and no observable outputs beyond `clk`/`rst_n`, nothing in the design had any effect that could be observed externally, so the entire CPU was optimized away as dead logic. This was fixed by (1) pointing instruction memory at a real assembled test program via the `INIT_FILE` generic, and (2) adding two debug/observability output ports (`debug_pc`, `debug_reg_x1`) so synthesis has something concrete to preserve. RTL that is perfectly correct in simulation can still synthesize to nothing if the top-level design has no observable outputs.
+
+**Critical path analysis**: the worst path runs from the PC register, through fetch/decode, the register read and the ALU, to a register-file write - the full fetch-through-writeback chain that a single-cycle design must complete in one clock period (see `docs/microarchitecture.md` Section 4). About four fifths of the delay is routing.

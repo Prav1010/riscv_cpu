@@ -33,18 +33,13 @@ See `docs/isa_spec.md` for exact instruction coverage, `docs/microarchitecture.m
 | Program | Coverage |
 |---------|----------|
 | `basic_arith.asm` | R-type/I-type ALU ops, shifts, comparisons, negative immediates, LUI, AUIPC |
-| `branches.asm` | Taken and not-taken branches (BEQ, BLT), JAL with return-address capture |
+| `branches.asm` | Taken branches (BEQ, BLT) and JAL with return-address capture |
 | `load_store.asm` | SW/LW round-trip verification across multiple memory offsets |
+| `coverage_extra.asm` | The 14 instructions the other programs do not run (ANDI, ORI, XORI, SLTI, SLTIU, SRAI, SLL, SRL, SRA, BNE, BGE, BLTU, BGEU, JALR); every branch is tested both taken and not taken, and JALR jumps to an odd address to check that bit 0 is cleared |
 
-All three programs pass with every register matching the golden model exactly.
+All four programs pass with every register (x1-x31) matching the golden model exactly, and together they execute all 31 implemented instructions (the first three programs alone cover 17 of 31). Results were obtained with Vivado 2018.1 (first three programs) and reproduced with Vivado 2023.1 (all four). Coverage is by instruction, not by operand value.
 
 ## How to Run
-## Example Waveform
-
-![RISC-V CPU waveform](docs/cpu_waveform.png)
-
-*Captured in Vivado's simulator: PC incrementing through fetched instructions, with rs1/rs2 register reads, ALU result, and the writeback value visible as each instruction executes.*
-
 ```bash
 cd sim
 ./run.sh
@@ -58,6 +53,12 @@ This script:
 
 Waveforms are saved in `sim/results/`.
 
+## Example Waveform
+
+![RISC-V CPU waveform](docs/cpu_waveform.png)
+
+*Captured in Vivado's simulator for the `load_store` program: PC incrementing through fetched instructions, with rs1/rs2 register reads, ALU result, and the writeback value visible as each instruction executes.*
+
 ## Synthesis
 
 ```bash
@@ -65,7 +66,23 @@ cd synth
 vivado -mode batch -source cpu_synth.tcl
 ```
 
-Produces timing, area, and power reports in `synth/reports/`. Real synthesis (Artix-7 xc7a35tcpg236-1, instruction memory pre-loaded with a test program) shows **0 errors, 0 critical warnings**, 4.67% LUT utilization, 2.47% register utilization, and an 8.147ns critical path (~123 MHz) running the full fetch-through-writeback chain, as expected for a single-cycle design. See `docs/design_decisions.md` Section 8 for the full discussion, including a real lesson learned about synthesis needing observable outputs (the first synthesis attempt produced zero cells until debug output ports were added).
+Produces timing, area, and power reports in `synth/reports/` (synthesis only, no clock constraint, so the timing figure there is only an estimate before placement).
+
+For a constrained run through place and route:
+
+```bash
+cd synth
+PERIOD=10 vivado -mode batch -source cpu_impl.tcl
+```
+
+Results (Vivado 2023.1, Artix-7 xc7a35tcpg236-1, out-of-context mode, instruction memory pre-loaded with `basic_arith.hex`):
+
+| Clock target | Worst setup slack | Result |
+|---|---|---|
+| 10 ns (100 MHz) | +0.150 ns | timing met |
+| 8 ns (125 MHz) | -0.539 ns | timing not met |
+
+After place and route at 10 ns the core uses 906 LUTs (4.36%) and 358 registers (0.86%); the estimated power is 0.097 W (vector-less, medium confidence). About 79% of the 9.843 ns critical path is routing delay. These figures are for a fixed program in instruction memory (unused register-file bits are optimised away), out-of-context mode (no clock tree or I/O), and no board test. The maximum frequency lies between 100 and 125 MHz and was not searched further. See `docs/design_decisions.md` Section 8 for the discussion, including the lesson that the first synthesis attempt produced zero cells until debug output ports were added.
 
 ## Repository Structure
 
@@ -87,12 +104,13 @@ riscv_cpu/
 │ ├── cpu_tb.sv # Main testbench
 │ ├── riscv_golden_model.py # Independent Python ISA-level reference model
 │ ├── asm_to_hex.py # Minimal RV32I assembler
-│ └── test_programs/ # Assembly test programs
+│ └── test_programs/ # Assembly test programs (4)
 ├── sim/
 │ ├── run.sh
 │ └── results/
 ├── synth/
-│ ├── cpu_synth.tcl
+│ ├── cpu_synth.tcl # Synthesis only
+│ ├── cpu_impl.tcl # Constrained synthesis + place and route
 │ └── reports/
 ├── docs/
 │ ├── isa_spec.md # Exact instruction coverage
