@@ -6,7 +6,7 @@
 
 set -e
 
-PROGRAMS=("basic_arith" "branches" "load_store")
+PROGRAMS=("basic_arith" "branches" "load_store" "coverage_extra")
 
 echo "=== Step 1: Assembling test programs ==="
 cd ../tb
@@ -22,7 +22,7 @@ import sys
 sys.path.insert(0, ".")
 from riscv_golden_model import GoldenCPU
 
-programs = ["basic_arith", "branches", "load_store"]
+programs = ["basic_arith", "branches", "load_store", "coverage_extra"]
 
 for prog_name in programs:
     with open(f"test_programs/{prog_name}.hex") as f:
